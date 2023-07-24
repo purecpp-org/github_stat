@@ -34,3 +34,12 @@
 # clion
 cmake-*
 .idea
+
+# cache
+.cache
+
+# cmake
+.cmake
+
+# build
+build

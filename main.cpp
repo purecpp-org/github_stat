@@ -34,7 +34,7 @@ void test_db() {
 }
 
 int main() {
-  //    test_db();
+  test_db();
   auto &pool = coro_io::g_io_context_pool(2);
   cinatra::coro_http_client client(pool.get_executor());
   std::cout << "Hello, World!" << std::endl;
