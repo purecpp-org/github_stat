@@ -116,8 +116,7 @@ void update_table(const std::vector<std::string> &args,
       std::string url = "https://api.github.com/repos/";
       url.append(repo).append("/traffic/clones");
       auto result = client.get(url);
-      // if (result.status != 200)
-      {
+      if (result.status != 200) {
         std::cerr << result.status << "\n";
         std::cerr << result.resp_body << "\n";
         std::cout << "will retry in 5 seconds\n";
@@ -178,7 +177,7 @@ int main(int argc, char **argv) {
   }
 
   cinatra::http_server server(8);
-  bool r = server.listen("0.0.0.0", "9980");
+  bool r = server.listen("0.0.0.0", "9988");
   if (!r) {
     std::cerr << "listen failed\n";
     return -1;
