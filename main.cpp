@@ -189,7 +189,6 @@ int main(int argc, char **argv) {
   });
 
   std::thread svr_thd([&server] { server.run(); });
-  svr_thd.join();
 
   auto &pool = coro_io::g_io_context_pool(argc - 2);
 
