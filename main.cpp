@@ -75,7 +75,6 @@ inline std::string read_table(const std::vector<std::string> &dbs) {
   for (auto &name : dbs) {
     ormpp::dbng<ormpp::sqlite> sqlite;
     sqlite.connect((name + ".db").data());
-    sqlite.create_datatable<clone_t>(ormpp_auto_key{"unix_time"});
     auto tp = sqlite.query<std::tuple<int>>("select sum(uniques) from clone_t");
 
     result.append("until ")
