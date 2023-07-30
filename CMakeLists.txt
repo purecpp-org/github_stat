@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.15)
 project(github_stat)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -29,6 +29,7 @@ add_definitions(-DORMPP_ENABLE_SQLITE3)
 add_definitions(-DCINATRA_ENABLE_SSL)
 
 add_library(sqlite3 ormpp/thirdparty/sqlite3/shell.c ormpp/thirdparty/sqlite3/sqlite3.c)
+target_link_libraries(sqlite3 pthread -ldl)
 
 add_executable(github_stat main.cpp)
 
